@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const {exec} = require('child_process');
 
 const userRoutes = require('./routes/UserRoutes.js');
 const productRoutes = require('./routes/ProductRoutes.js');
@@ -31,4 +32,7 @@ app.use('/api/orders', orderRoutes);
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  exec(`start http://localhost:${PORT}/api-docs`);
+});

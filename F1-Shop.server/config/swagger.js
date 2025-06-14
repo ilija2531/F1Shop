@@ -14,6 +14,45 @@ const options = {
         url: 'http://localhost:5000',
       },
     ],
+    components: {
+      schemas: {
+        Order: {
+          type: 'object',
+          properties: {
+            _id: { type: 'string' },
+            user: { type: 'string' },
+            orderItems: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  product: { type: 'string' },
+                  name: { type: 'string' },
+                  qty: { type: 'number' },
+                  price: { type: 'number' }
+                }
+              }
+            },
+            shippingAddress: {
+              type: 'object',
+              properties: {
+                address: { type: 'string' },
+                city: { type: 'string' },
+                postalCode: { type: 'string' },
+                country: { type: 'string' }
+              }
+            },
+            paymentMethod: { type: 'string' },
+            isPaid: { type: 'boolean' },
+            paidAt: { type: 'string', format: 'date-time' },
+            isDelivered: { type: 'boolean' },
+            deliveredAt: { type: 'string', format: 'date-time' },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' }
+          }
+        }
+      }
+    }
   },
   apis: ['./routes/*.js'], 
 };
