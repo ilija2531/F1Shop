@@ -50,11 +50,38 @@ const options = {
             createdAt: { type: 'string', format: 'date-time' },
             updatedAt: { type: 'string', format: 'date-time' }
           }
+        },
+        Product: {
+          type: 'object',
+          properties: {
+            _id: { type: 'string' },
+            name: { type: 'string' },
+            brand: { type: 'string' },
+            category: { type: 'string' },
+            description: { type: 'string' },
+            price: { type: 'number' },
+            countInStock: { type: 'number' },
+            image: { type: 'string' },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' }
+          }
+        },
+        User: {
+          type: 'object',
+          properties: {
+            _id: { type: 'string' },
+            name: { type: 'string' },
+            email: { type: 'string', format: 'email' },
+            password: { type: 'string' },
+            isAdmin: { type: 'boolean' },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' }
+          }
         }
       }
     }
   },
-  apis: ['./routes/*.js'], 
+  apis: ['./routes/*.js'],
 };
 
 const swaggerSpec = swaggerJsDoc(options);
